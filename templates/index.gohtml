@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>emoji-translator</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="public/main.css">
+ 
+</head>
+<body>
+
+{{template "header"}}
+
+<main>
+
+<div>
+ <form action="/translate" method="POST">
+        
+        <textarea id="inputText" name="inputText"   placeholder="Enter text input"></textarea>
+        <br>
+        <button type="submit">Translate</button>
+    </form>
+     
+   </div>
+
+<div>
+        
+   {{ if .InputText }}
+
+    {{ if .Emoji }}
+        <h2>Translation Result:</h2>
+        <p >Input Text: <span class="input-data">{{ .InputText }} </span></p>
+        <p >Emoji: {{ .Emoji }}</p>
+    {{ else }}
+        <p>No matching emoji found for "{{.InputText}}", try again</p>
+    {{ end }}
+
+{{ end }}
+    
+
+</div>
+
+</main>
+
+{{template "footer"}}
+
+</body>
+</html>
+    
